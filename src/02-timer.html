@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Countdown Timer</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="flatpickr.min.css">
 </head>
 
 <body>
   <input type="text" id="datetime-picker" />
-  <button type="button" data-start onclick="startCountdown()">Start</button>
+  <button type="button" data-start disabled>Start</button>
 
   <div class="timer">
     <div class="field">
@@ -31,9 +31,8 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdn.jsdelivr.net/npm/notiflix"></script>
-  <script src="02-timer.js"></script>
+  <script type="module" src="02-timer.js"></script>
+  <script src="flatpickr.min.js"></script>
 </body>
 
 </html>
