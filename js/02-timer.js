@@ -19,7 +19,7 @@ const options = {
   },
 };
 
-flatpickr("#datetime-picker", options);
+flatpickr("#datetime-picker", { ...options, wrap: true });
 
 let countdownInterval;
 
