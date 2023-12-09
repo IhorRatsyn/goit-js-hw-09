@@ -5,20 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Color Switcher</title>
-  <style>
-    body {
-      transition: background-color 0.5s ease-in-out;
-    }
-  </style>
 </head>
 
 <body>
+  <button type="button" data-start>Start</button>
+  <button type="button" data-stop disabled>Stop</button>
 
-  <button type="button" data-start onclick="startColorChange()">Start</button>
-  <button type="button" data-stop onclick="stopColorChange()">Stop</button>
-
-
-  <script src="01-color-switcher.js"></script>
+  <script type="module" src="01-color-switcher.js"></script>
 </body>
 
 </html>

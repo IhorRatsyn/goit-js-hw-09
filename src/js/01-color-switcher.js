@@ -1,30 +1,40 @@
 function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777216).toString(16).padStart(6, '0')}`;
+  return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
 }
 
-
-let colorInterval;
-
-function startColorChange() {
+document.addEventListener("DOMContentLoaded", function () {
   const startButton = document.querySelector('[data-start]');
   const stopButton = document.querySelector('[data-stop]');
+  const body = document.body;
 
-  startButton.disabled = true;
-  stopButton.disabled = false;
+  let intervalId;
 
-  colorInterval = setInterval(() => {
-    document.body.style.backgroundColor = getRandomHexColor();
-  }, 1000);
-}
+  function startColorChange() {
+    // Встановлення кнопки Start у стан неактивності
+    startButton.disabled = true;
+    // Зняття кнопки Stop зі стану неактивності
+    stopButton.disabled = false;
 
-function stopColorChange() {
-  const startButton = document.querySelector('[data-start]');
-  const stopButton = document.querySelector('[data-stop]');
+    // Запуск інтервалу для зміни кольору кожну секунду
+    intervalId = setInterval(function () {
+      body.style.backgroundColor = getRandomHexColor();
+    }, 1000);
+  }
 
-  startButton.disabled = false;
-  stopButton.disabled = true;
+  function stopColorChange() {
+    // Відміна інтервалу
+    clearInterval(intervalId);
 
-  clearInterval(colorInterval);
-  document.body.style.backgroundColor = ''; // Reset background color
-}
+    // Скидання кольору фону на початковий
+    body.style.backgroundColor = '';
 
+    // Зняття кнопки Stop зі стану неактивності
+    stopButton.disabled = true;
+    // Відновлення кнопки Start
+    startButton.disabled = false;
+  }
+
+  // Додавання обробників подій для кнопок
+  startButton.addEventListener('click', startColorChange);
+  stopButton.addEventListener('click', stopColorChange);
+});
