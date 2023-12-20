@@ -15,6 +15,7 @@ function createPromise(position, delay) {
 }
 
 function handleFormSubmit(event) {
+  console.log(1321)
   event.preventDefault();
 
   const formData = new FormData(event.target);
@@ -38,3 +39,9 @@ function generatePromises(amount, firstDelay, step) {
       });
   }
 }
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const form = document.querySelector('.form')
+
+  form.addEventListener('submit', handleFormSubmit)
+})
